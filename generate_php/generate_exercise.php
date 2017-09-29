@@ -70,7 +70,6 @@ This is a demo of how to run a randomized exercise from AlgebraKiT's CMS.
    <body>
         <?php
             $exInfo = getExerciseInfo($exerciseId);
-            echo print_r($resp, true);
             $lev = $exInfo['numberOfLevels'];
             echo "<h3>Exercises of level $lev</h3>";
             $sessionId = $resp['sessionId'];
