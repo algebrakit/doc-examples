@@ -101,10 +101,7 @@ function akitPost($endpoint, $data) {
             };
         </script>
         <!-- this script adds AlgebraKiT's API to global object AlgebraKIT -->
-        <?php
-           echo '<script src="https://algebrakit.eu/akit-widgets.js"></script>';
-        ?>
-
+        <script src="https://algebrakit.eu/akit-widgets.js"></script>
         <script>
              AlgebraKIT.injectWidgets().then(function(warr) {
                  //after creation of the widgets, you can add listeners to learning events.
