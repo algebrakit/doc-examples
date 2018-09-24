@@ -56,7 +56,7 @@ function akitPost($endpoint, $data) {
 ?>
 
 
-<home>
+<html>
    <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
         <style>
@@ -120,4 +120,4 @@ function akitPost($endpoint, $data) {
              });
         </script>
    </body>
-</home>
+</html>
