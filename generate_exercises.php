@@ -5,7 +5,7 @@ For optimal performance the sessions for all exercises are obtained with one
 call to AlgebraKiT. The result contains the html to include the interaction into the webpage (with inlined initialization data)
 -->
 <?php
-    $host      = 'http://algebrakit.eu';
+    $host      = 'https://algebrakit.eu';
     $appId     = '<your credentials>';
     $appSecret = '<your credentials>';
     $publishId =  '<your publish id';
@@ -43,7 +43,7 @@ function akitPost($endpoint, $data) {
     }
 
     function getSessions() {
-        global $courseId, $publishId, $exlist, $apiVersion;
+        global $publishId, $exlist, $apiVersion;
         $data = array(
             'exercises' => $exlist,
             'publishId'  => $publishId,
@@ -58,7 +58,7 @@ function akitPost($endpoint, $data) {
 
 <home>
    <head>
-        <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
         <style>
             .exercise {
                 margin:10px;
@@ -92,21 +92,17 @@ function akitPost($endpoint, $data) {
        
         <!-- formula editor requires jquery -->
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <!-- katex takes care of displaying math formula in latex -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
         <!--- Global object AlgebraKIT will be the front end API of AlgebraKiT and is used for configuration -->
         <script>
             AlgebraKIT = {
                 config: {
-                    minified: false,
                     theme: 'akit'  //algebrakit theme is default
                 }
             };
         </script>
         <!-- this script adds AlgebraKiT's API to global object AlgebraKIT -->
         <?php
-           echo '<script src="'.$host.'/akit-widgets.js"></script>';
+           echo '<script src="https://algebrakit.eu/akit-widgets.js"></script>';
         ?>
 
         <script>
