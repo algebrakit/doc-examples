@@ -58,13 +58,11 @@ function akitPost($endpoint, $data) {
 
 <html>
    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
         <style>
             .exercise {
                 margin:10px;
             }
         </style>
-        
    </head>
    <body>
         <?php
