@@ -8,5 +8,6 @@ The examples in this repository are meant for developers who want to create thei
 
 ---
 
+**AlgebraKiT**<br>
 Official Website: (https://algebrakit-learning.com)<br>
 Documentation: (https://docs.algebrakit-learning.com)
