@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        AlgebraKiT NodeJS Demo
+    </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="container">
+
+    <h1>AlgebraKiT NodeJS Demo</h1>
+
+    <div>
+
+        <% 
+            //Add akit-exercise tags with sessionId from result
+            for(let i = 0; i < exResults.length; i++) {
+                %><h2>Exercise<%= i+1 %></h2><%
+                let exerciseResult = exResults[i]; 
+                if(exerciseResult.success) {
+                    let sessionResult = exerciseResult.sessions[0]; 
+                    %><akit-exercise session-id='<%= sessionResult.sessionId %>' start-active></akit-exercise><%
+                } else {
+                    %><div class="alert alert-danger" role="alert"><%= exerciseResult.msg %></div><%;  //creating session failed
+                }
+            }
+            %>
+
+    </div>
+
+    <!--- Global object AlgebraKIT will be the front end API of AlgebraKiT and is used for configuration -->
+    <script>
+        AlgebraKIT = {
+            config: {
+                //theme: '..',  //themes configure behaviour and design of frontend widgets
+            }
+        };
+    </script>
+
+    <!--- Load frontend API (stored in window.AlgebraKIT) -->
+    <script src='https://widgets.algebrakit.eu/akit-widgets.min.js'></script>
+
+    <!-- now you can use the frontend API, e.g. to listen to learning events -->
+    <script>
+        AlgebraKIT.addExerciseListener(function (data) {
+            console.log(data);
+        })
+    </script>
+
+</body>
+
+</html>
