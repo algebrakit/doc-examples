@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .author-wrapper {
+                padding: 50px;
+            }
+            .button {
+                display: inline-block; 
+                margin-top:20px; 
+                padding:10px; 
+                background-color:#009fce; 
+                color:white; 
+                font-weight:bold
+            }
+        </style>
+    </head>
+    <body>
+        <div class='author-wrapper'>
+            <!-- This is the authoring component -->
+            <akit-exercise-editor audiences='[ {"name": "Nederlands", "id":"vwo-b"}, {"name": "Engels", "id": "uk_KS5"}]'></akit-exercise-editor>
+
+            <a href="javascript:getSpec()" class="button">Get Specification</a>
+        </div>
+
+
+        <!--- Global object AlgebraKIT will be the front end API of AlgebraKiT and is used for configuration -->
+        <script>
+            AlgebraKIT = {
+                config: {
+                    secureProxy: '/algebrakit-secure',
+                    proxy: '/algebrakit',
+                    // theme: '...'   //themes configure behaviour and design of frontend widgets
+                }
+            }
+        </script>
+
+        <!--- Load frontend API (stored in window.AlgebraKIT) -->
+        <script src="http://localhost:3015/widget/akit-widgets.min.js"></script>
+
+        <script>
+
+            // read the exercise definition from the authoring component
+            let elm = document.getElementsByTagName('akit-exercise-editor');
+            getSpec = function() {
+                elm[0].getExercise().then(spec => alert(JSON.stringify(spec)));
+            }
+
+            // optional: push an existing exercise definition to the authoring component
+            let spec = {"audience":"uk_KS5","course":"89dc0678-35d1-43c9-bfb5-7c46a1fa5cb2","definition":{"type":"EXERCISE","audience":"uk_KS5","questionMode":"ALL_AT_ONCE","elements":[{"type":"QUESTION","mathRendering":"PREPROCESSED","id":"Q1","content":"<div data-ref-id=\"Tk4yE\" data-ref-name=\"Block 1\">Simplify `$$$x\\left(x+1\\right)-x^{2}$$`</div>","instructionType":"SCRIPT","resources":[],"interactions":[{"showHints":true,"palette":"equations","id":"TC3WO","name":"I1","ans":{"action":"CALCULATE","id":"$$\\verb|solution|$$","type":"ALGEBRA","defs":[{"def":"$$x\\left(x+1\\right)-x^{2}$$","score":1,"marks":0,"preconds":[],"decimals":-1}],"evalMode":"EQUIVALENT","hidden":false,"parameter":null,"buggyDefs":[],"alternatives":[],"answers":[],"accuracyMode":"EXACT","accuracyEnabled":null,"targetUnitConvert":true},"extendedInline":false,"contextHints":[],"steps":[]}]}],"exerciseContext":{"properties":{"x":[{"name":"x","type":"VARIABLE","latex":"x","args":null}]}}},"id":"b6c55633-96ca-4aa4-af39-74a572037920","majorVersion":0,"minorVersion":0,"type":"SPECIFICATION","subjectId":"e7c31b28-326a-4447-860b-78ffbb698d98"};
+            
+            AlgebraKIT.waitUntilReady(elm[0]).then( () => 
+                elm[0].updateExercise(spec)
+            );
+            
+        </script>
+    </body>
+</html>
