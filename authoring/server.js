@@ -7,13 +7,10 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 const port = Number(process.env.PORT || 3015);
 
-const API_KEY = 'YWxnZWJyYWtpdC5DTVMtTWFydGlqbi42YTQzMGM1ZjRiZTQxZGExMmVhNjc3NTU1OTNlY2IwMDg3YzczMTQ2Nzk5ZDdiNmIyNmE2NWJmNWFiZjY2NjgyYjkzY2ZmMTcxMzM5ODQ2NzQ3MWIyOWNiNjdlZWQxZjg=';
+const API_KEY = '...'; //The API key that you received from AlgebraKiT or created in the management console
 
-// const TARGET = 'https://algebrakit.eu';
-// const WIDGET_TARGET = 'https://widgets.algebrakit.eu';
-
-const TARGET = 'http://localhost:3000';
-const WIDGET_TARGET = 'http://localhost:4000';
+const TARGET = 'https://algebrakit.eu';
+const WIDGET_TARGET = 'https://widgets.algebrakit.eu';
 
 //setup proxy for AlgebraKiT gateway
 var proxySecure = createProxyMiddleware({
