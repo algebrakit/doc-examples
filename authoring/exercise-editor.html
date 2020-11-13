@@ -18,7 +18,7 @@
     <body>
         <div class='author-wrapper'>
             <!-- This is the authoring component -->
-            <akit-exercise-editor audiences='[ {"name": "Nederlands", "id":"vwo-b"}, {"name": "Engels", "id": "uk_KS5"}]'></akit-exercise-editor>
+            <akit-exercise-editor audiences='[ {"name": "Nederlands", "id":"vwo-b"}, {"name": "Engels", "id": "uk_KS5"}]' enable-multiple-questions="false"></akit-exercise-editor>
 
             <a href="javascript:getSpec()" class="button">Get Specification</a>
         </div>
@@ -29,14 +29,14 @@
             AlgebraKIT = {
                 config: {
                     secureProxy: '/algebrakit-secure',
-                    proxy: '/algebrakit',
+                    // proxy: '/algebrakit',
                     // theme: '...'   //themes configure behaviour and design of frontend widgets
                 }
             }
         </script>
 
         <!--- Load frontend API (stored in window.AlgebraKIT) -->
-        <script src="http://localhost:3015/widget/akit-widgets.min.js"></script>
+        <script src="https://widgets.algebrakit.eu/akit-widgets.min.js"></script>
 
         <script>
 
